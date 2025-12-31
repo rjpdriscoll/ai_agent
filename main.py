@@ -14,9 +14,6 @@ response = client.models.generate_content(
     contents="Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum.",
 )
 
-prompt_tokens = str
-response_tokens = str
-
 
 def get_token_count(token_type):
     if response.usage_metadata == None:
@@ -29,7 +26,7 @@ def get_token_count(token_type):
     if token_type == "response_tokens":
         response_tokens = response.usage_metadata.candidates_token_count
         return response_tokens
-    return "Invalid token type"
+    return "Invalid token type. Please provide either 'prompt_tokens' or 'response_tokens'."
 
 
 def main():
